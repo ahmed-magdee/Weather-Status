@@ -1,0 +1,70 @@
+@use "variable" as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-corner {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $third;
+  border-radius: 25px;
+}
+
+body {
+  font-family: "Cairo", serif;
+  color: white;
+  background-color: $primary;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+label {
+  display: block;
+}
+
+input {
+  font-family: inherit;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
+
+::selection {
+  color: white;
+  background-color: $third;
+}

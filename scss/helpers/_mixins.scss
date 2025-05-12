@@ -1,0 +1,21 @@
+@use "variable" as *;
+
+@mixin breakpoint($point) {
+  @if $point == mobile {
+    @media (min-width: $small) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (min-width: $medium) {
+      @content;
+    }
+  } @else if $point == large {
+    @media (min-width: $large) {
+      @content;
+    }
+  } @else if $point == $extra_large {
+    @media (min-width: $extra_large) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,89 @@
+@use "variable" as *;
+
+.icon-menu-span {
+  flex: 1;
+  @media (max-width: 575px) {
+    width: calc(50% - 7.5px);
+  }
+  &.ar {
+    text-align: left;
+  }
+  &.en {
+    text-align: right;
+  }
+  @media (min-width: $medium) {
+    display: none;
+  }
+  .icon-menu-i {
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
+
+.all-data {
+  display: flex;
+  min-height: 100vh;
+  padding: {
+    top: $rad-15;
+    bottom: $rad-15;
+  }
+  @media (min-width: $medium) {
+    &.ar {
+      padding-right: 15px;
+    }
+    &.en {
+      padding-left: 15px;
+    }
+  }
+  nav {
+    position: fixed;
+    padding: 10px;
+    background-color: $secondary;
+    width: 55px;
+    border-radius: $rad-15;
+    flex-shrink: 0;
+    top: 15px;
+    height: calc(100vh - 30px);
+    transition: 0.3s;
+    z-index: 1;
+    &.ar {
+      right: 15px;
+    }
+    &.en {
+      left: 15px;
+    }
+    @media (max-width: 767px) {
+      &.ar {
+        transform: translateX(calc(100% + 15px));
+      }
+      &.en {
+        transform: translateX(calc(-100% - 15px));
+      }
+      &.active {
+        transform: translateX(0);
+        box-shadow: 0px 0px 15px 0px $primary;
+      }
+    }
+    @media (min-width: $medium) {
+      position: sticky;
+      transform: translateX(0);
+    }
+    > a {
+      font-size: 23px;
+      text-align: center;
+      display: block;
+      margin-bottom: 30px;
+      color: $third;
+    }
+    a {
+      &.nav-link-active {
+        color: $third;
+      }
+      display: block;
+      text-align: center;
+      &:not(:last-child) {
+        margin-bottom: $rad-15;
+      }
+    }
+  }
+}

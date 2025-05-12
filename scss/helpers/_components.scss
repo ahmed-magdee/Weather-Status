@@ -1,0 +1,120 @@
+@use "variable" as *;
+
+// Start Components
+.overflow-x {
+  overflow-x: auto;
+}
+
+.custom-div {
+  padding: 15px;
+  background: $secondary;
+  border-radius: $rad-15;
+  grid-column: span 2 / span 2;
+  @media (min-width: $large) {
+    grid-column: span 1 / span 1;
+  }
+}
+
+.gradient {
+  background-image: linear-gradient(45deg, $secondary, $blue, $secondary);
+}
+
+.text-gradient {
+  background-image: linear-gradient(45deg, transparent, $third);
+  color: transparent !important;
+  background-clip: text;
+}
+
+.h2 {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.language-div {
+  position: relative;
+  font-size: 12px;
+  @media (max-width: 575px) {
+    width: calc(50% - 7.5px);
+  }
+  p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: $third;
+    padding: 4px 8px;
+    border-radius: 15px;
+    width: 75px;
+    height: 30px;
+    cursor: pointer;
+    i {
+      transition: transform 0.3s;
+    }
+    &.open {
+      i {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  ul.language-list {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top: calc(100% + 4px);
+    background: #742bec;
+    border-radius: 15px;
+    height: 0;
+    transition: height 0.3s;
+    z-index: 1;
+    overflow: hidden;
+    &.open {
+      height: 62px;
+    }
+    li {
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+  }
+}
+
+.compass-container {
+  .compass {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: $blue;
+    margin: auto;
+    span {
+      width: 3px;
+      height: 15px;
+      background-color: white;
+      border-radius: 10px;
+      display: block;
+      margin: auto;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: calc(100% - 2px);
+        left: -3px;
+        border-width: 4px;
+        border-style: solid;
+        border-color: white transparent transparent transparent;
+      }
+    }
+  }
+  p {
+    font-size: 12px;
+    text-align: center;
+    color: $gray;
+    margin-top: 5px;
+    span {
+      display: block;
+      margin-top: -6px;
+    }
+  }
+}
+
+// End Components
