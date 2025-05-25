@@ -36,7 +36,7 @@ _واجهة الصفحة الرئيسية لتطبيق Nile Forecast_
 1. استنسخ المستودع:
 
    ```bash
-   git clone https://github.com/username/nile-forecast.git
+   git clone https://github.com/ahmed-magdee/Weather-Status.git
    ```
 
 2. أنتقل إلي مجلد المشروع
