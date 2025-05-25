@@ -140,15 +140,22 @@ function fetchingDataWeather(city) {
     return __awaiter(this, void 0, void 0, function* () {
         dataDiv.textContent = "";
         createAnimation(dataDiv);
-        const response = yield fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/next7days?key=${KEY}`);
-        const data = yield response.json();
-        dataFetching = data;
-        const sessionData = getSessionStorage("weatherData");
-        setSessionStorage({
-            key: "weatherData",
-            value: [...sessionData, dataFetching],
-        });
-        createDivsAndLoopingOnData(dataFetching);
+        try {
+            const response = yield fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/next7days?key=${KEY}`);
+            const data = yield response.json();
+            dataFetching = data;
+            const sessionData = getSessionStorage("weatherData");
+            setSessionStorage({
+                key: "weatherData",
+                value: [...sessionData, dataFetching],
+            });
+            createDivsAndLoopingOnData(dataFetching);
+        }
+        catch (_a) {
+            dataDiv.textContent = "";
+            const errorDiv = createElement("div", "animation-container error-div", "", dataDiv);
+            createElement("h2", "", "Something Went Wrong :(", errorDiv);
+        }
     });
 }
 // Main Function To Create And Loop Divs
